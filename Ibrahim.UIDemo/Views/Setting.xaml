@@ -1,0 +1,59 @@
+﻿<base:CustomBaseForm x:Class="Ibrahim.UI.Views.Setting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:base="clr-namespace:Ibrahim.Wpf.CustomControls.Controls;assembly=Ibrahim.Wpf.CustomControls"
+        Style="{DynamicResource form}" ImageSource="/images/cancel.png"
+        mc:Ignorable="d"
+        Title="Ayarlar" Height="255.2" Width="556.8">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        
+        <base:CustomTextBlock Style="{DynamicResource errorText}" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding Error}"/>
+        <base:CustomTextBlock Text="Seçili tema" Grid.Row="1" Style="{DynamicResource normalText}"/>
+        <base:CustomTextBox
+            Style="{DynamicResource textBox}"
+            Grid.Row="1" Grid.Column="1"
+            Margin="5"
+            Text="{Binding Path=Username,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
+        <base:CustomComboBox/>
+
+        <base:CustomTextBox
+            Margin="5"
+            Style="{DynamicResource textBox}"
+            Grid.Row="1" Grid.Column="1"
+            Text="{Binding Path=Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        
+        <Grid Grid.Row="3" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <base:CustomImageButton 
+            Style="{DynamicResource imageButton}"
+            ImageSource="/images/save.png"
+            Content="Güncelle"
+                Command="{Binding LoginCommand}"/>
+            <base:CustomImageButton 
+            Grid.Column="1"
+            Style="{DynamicResource imageButton}"
+            ImageSource="/images/cancel.png"
+                Command="{Binding ExitCommand}"
+            Content="Çıkış"/>
+        </Grid>
+    </Grid>
+
+</base:CustomBaseForm>

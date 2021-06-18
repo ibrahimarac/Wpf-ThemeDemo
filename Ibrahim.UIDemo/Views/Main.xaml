@@ -1,0 +1,32 @@
+﻿<base:CustomBaseForm x:Class="Ibrahim.UI.Views.Main"
+        xmlns:base="clr-namespace:Ibrahim.Wpf.CustomControls.Controls;assembly=Ibrahim.Wpf.CustomControls"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ibrahim.UI.Views"
+        mc:Ignorable="d"
+                        Style="{DynamicResource form}"
+                        ImageSource="/images/cancel.png"
+        Title="Main" Height="226.191" Width="567.5">
+    <WrapPanel>
+        <base:CustomImageButton
+            ImageSource="/images/settings.png"
+            Content="AYARLAR"
+            Style="{DynamicResource imageButton}"
+            Width="250" Height="80"
+            Margin="10" Command="{Binding SettingsCommand}"/>
+        <base:CustomImageButton
+            ImageSource="/images/preferences.png"
+            Content="KULLANICI İŞLEMLERİ"
+            Style="{DynamicResource imageButton}"
+            Width="250" Height="80"
+            Margin="10" Command="{Binding UserCommand}"/>
+        <base:CustomImageButton
+            ImageSource="/images/exit.png"
+            Content="ÇIKIŞ"
+            Style="{DynamicResource imageButton}"
+            Width="250" Height="80"
+            Margin="10" Command="{Binding ExitCommand}"/>
+    </WrapPanel>
+</base:CustomBaseForm>
