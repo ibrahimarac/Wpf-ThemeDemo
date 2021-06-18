@@ -22,20 +22,17 @@
 
         
         <base:CustomTextBlock Style="{DynamicResource errorText}" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding Error}"/>
+        
         <base:CustomTextBlock Text="Seçili tema" Grid.Row="1" Style="{DynamicResource normalText}"/>
-        <base:CustomTextBox
-            Style="{DynamicResource textBox}"
+      
+        <base:CustomComboBox
             Grid.Row="1" Grid.Column="1"
             Margin="5"
-            Text="{Binding Path=Username,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-
-        <base:CustomComboBox/>
-
-        <base:CustomTextBox
-            Margin="5"
-            Style="{DynamicResource textBox}"
-            Grid.Row="1" Grid.Column="1"
-            Text="{Binding Path=Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+            Style="{DynamicResource comboBox}">
+            <ComboBoxItem>dfdfd</ComboBoxItem>
+            <ComboBoxItem>dddddd</ComboBoxItem>
+        </base:CustomComboBox>
+       
         
         <Grid Grid.Row="3" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
