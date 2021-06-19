@@ -1,4 +1,5 @@
-﻿using Ibrahim.Wpf.CustomControls.Controls;
+﻿using Ibrahim.UI.ViewModels;
+using Ibrahim.Wpf.CustomControls.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Ibrahim.UI.Views
         public Setting()
         {
             InitializeComponent();
+            DataContext = new SettingVM();
         }
     }
 }

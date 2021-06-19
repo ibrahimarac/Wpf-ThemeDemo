@@ -20,5 +20,7 @@ namespace Ibrahim.Data.Context
         public DbSet<User> Users { get; set; }
 
         public DbSet<UserSettings> UserSettings { get; set; }
+
+        public DbSet<Theme> Themes { get; set; }
     }
 }

@@ -6,34 +6,49 @@
         xmlns:base="clr-namespace:Ibrahim.Wpf.CustomControls.Controls;assembly=Ibrahim.Wpf.CustomControls"
         Style="{DynamicResource form}" ImageSource="/images/cancel.png"
         mc:Ignorable="d"
-        Title="Ayarlar" Height="255.2" Width="556.8">
-
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    Title="Ayarlar" Height="297.532" Width="556.8">
+    
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadThemesCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="0.7*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.7*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        
+
         <base:CustomTextBlock Style="{DynamicResource errorText}" Grid.ColumnSpan="2" Grid.Row="1" Text="{Binding Error}"/>
-        
+
         <base:CustomTextBlock Text="Seçili tema" Grid.Row="1" Style="{DynamicResource normalText}"/>
-      
-        <base:CustomComboBox
-            Grid.Row="1" Grid.Column="1"
-            Margin="5"
-            Style="{DynamicResource comboBox}">
-            <ComboBoxItem>dfdfd</ComboBoxItem>
-            <ComboBoxItem>dddddd</ComboBoxItem>
-        </base:CustomComboBox>
-       
+
+        <base:CustomComboBox x:Name="cmbThemes"
+            ItemsSource="{Binding Themes, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             DisplayMemberPath="Name"
+                             SelectedValuePath="Id"
+                             SelectedValue="{Binding SelectedTheme, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Grid.Row="1" Grid.Column="1"
+                             Margin="5"
+                             Style="{DynamicResource comboBox}"/>
+
+        <!--<ComboBox ItemsSource="{Binding Themes, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             DisplayMemberPath="Theme"
+                             SelectedValuePath="Id"
+                             SelectedValue="{Binding SelectedTheme, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Grid.Row="1" Grid.Column="1"
+                             Margin="5"/>-->
         
+
         <Grid Grid.Row="3" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

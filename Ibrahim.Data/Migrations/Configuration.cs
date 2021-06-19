@@ -15,6 +15,15 @@
 
         protected override void Seed(Ibrahim.Data.Context.UserContext context)
         {
+            context.Users.AddOrUpdate(u => new { u.Name, u.Surname, u.Email },
+                new User
+                {
+                    Name = "Halil İbrahim",
+                    Surname = "Araç",
+                    Email = "yazilim@ibrahimarac.com"
+                }
+            );
+
             context.LoginUsers.AddOrUpdate(u => u.Username,
                 new LoginUser
                 {
@@ -22,20 +31,20 @@
                    Password="12345"
                 }
             );
-            context.UserSettings.AddOrUpdate(u => u.Theme,
+
+            context.UserSettings.AddOrUpdate(u => u.UserId,
                 new UserSettings
                 {
-                    Theme = "Silver"
-                }
-            ) ;
-            context.Users.AddOrUpdate(u => new { u.Name, u.Surname,u.Email },
-                new User
-                {
-                    Name="Halil İbrahim",
-                    Surname="Araç",
-                    Email="yazilim@ibrahimarac.com"
+                    UserId = 1,
+                    ThemeId = 2
                 }
             );
+
+            context.Themes.AddOrUpdate(t => t.Name,
+                new Theme { Name="Blue"},
+                new Theme { Name="Silver"}
+            );
+
             context.SaveChanges();
         }
     }

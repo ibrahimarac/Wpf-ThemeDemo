@@ -17,8 +17,9 @@ namespace Ibrahim.Data.Core.Domain
 
         public User User { get; set; }
 
-        [Column(TypeName = "varchar")]
-        [StringLength(15)]
-        public string Theme { get; set; }
+        [ForeignKey("Theme")]
+        public int ThemeId { get; set; }
+
+        public Theme Theme { get; set; }
     }
 }

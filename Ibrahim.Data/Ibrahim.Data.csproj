@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Context\UserContext.cs" />
     <Compile Include="Core\Domain\LoginUser.cs" />
+    <Compile Include="Core\Domain\Theme.cs" />
     <Compile Include="Core\Domain\User.cs" />
     <Compile Include="Core\Domain\UserSettings.cs" />
     <Compile Include="Migrations\Configuration.cs" />
