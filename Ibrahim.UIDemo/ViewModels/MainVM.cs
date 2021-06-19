@@ -1,4 +1,5 @@
-﻿using Ibrahim.UI.Views;
+﻿using Ibrahim.UI.Abstractions;
+using Ibrahim.UI.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Windows.Input;
 
 namespace Ibrahim.Scheduler.ViewModels
 {
-    class MainVM
+    public class MainVM:ViewModelBase
     {
         private ICommand userCommand;
         private ICommand settingsCommand;

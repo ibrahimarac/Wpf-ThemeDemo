@@ -1,6 +1,7 @@
 ﻿using Ibrahim.Data.Context;
 using Ibrahim.Data.Core.Domain;
 using Ibrahim.Scheduler.ViewModels;
+using Ibrahim.UI.Abstractions;
 using Ibrahim.UI.Utils;
 using Ibrahim.UI.Views;
 using System;
@@ -9,17 +10,19 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 
 namespace Ibrahim.UI.ViewModels
 {
-    public class SettingVM : INotifyPropertyChanged
+    public class SettingVM : ViewModelBase,INotifyPropertyChanged
     {
         int _userId;
         Theme _selectedTheme;
         string _error;
         IEnumerable<Theme> _themes;
+
 
         public SettingVM()
         {
@@ -28,6 +31,25 @@ namespace Ibrahim.UI.ViewModels
 
         private ICommand loadThemesCommand;
         private ICommand saveThemeCommand;
+        ICommand exitCommand;
+
+       
+        //Aşağıdaki Command, çıkış butonuna basıldığında tetiklenecektir.
+        public ICommand ExitCommand
+        {
+            get
+            {
+                return exitCommand ?? new RelayCommand(() =>
+                {
+                    //Aktif pencereyi kapat
+                    ApplicationHelper.CloseWindowFromViewModel(WindowId);
+                },
+                () =>
+                {
+                    return true;
+                });
+            }
+        }
 
         //Aşağıdaki Command, Setting isimli View'in Loaded olayında çağrılıyor.
         //Burada tüm temalar yükleniyor ve kullanıcının seçili teması açılır kutuda seçili hale getiriliyor.
@@ -101,8 +123,6 @@ namespace Ibrahim.UI.ViewModels
                 OnPropertyChanged("Themes");
             }
         }
-
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -55,6 +55,7 @@
             Style="{DynamicResource imageButton}"
             ImageSource="/images/cancel.png"
                 Command="{Binding ExitCommand}"
+                CommandParameter="{Binding ElementName=windSettings}"
             Content="Çıkış"/>
         </Grid>
     </Grid>

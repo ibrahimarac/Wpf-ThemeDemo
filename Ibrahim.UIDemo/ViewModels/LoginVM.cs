@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Ibrahim.Data.Context;
+using Ibrahim.UI.Abstractions;
 using Ibrahim.UI.Utils;
 using Ibrahim.UI.Views;
 
 namespace Ibrahim.Scheduler.ViewModels
 {
-    public class LoginVM:INotifyPropertyChanged
+    public class LoginVM:ViewModelBase,INotifyPropertyChanged
     {
         private string username;
         private string password;
