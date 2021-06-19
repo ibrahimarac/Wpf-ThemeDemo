@@ -12,7 +12,8 @@ namespace Ibrahim.Data.Context
     {
         public UserContext():base("SchedulerConnection")
         {
-            Database.SetInitializer<UserContext>(new CreateDatabaseIfNotExists<UserContext>());
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<LoginUser> LoginUsers { get; set; }

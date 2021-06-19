@@ -13,5 +13,11 @@ namespace Ibrahim.UI
     /// </summary>
     public partial class App : Application
     {
+
+        public void ChangeTheme(string themeName)
+        {
+            //Temayı güncellemek için yazılan kod
+            Application.Current.Resources.Source = new Uri($"/Ibrahim.Themes;component/{themeName}.xaml", UriKind.RelativeOrAbsolute);
+        }
     }
 }

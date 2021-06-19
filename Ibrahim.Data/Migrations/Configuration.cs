@@ -18,6 +18,7 @@
             context.Users.AddOrUpdate(u => new { u.Name, u.Surname, u.Email },
                 new User
                 {
+                    Id = 1,
                     Name = "Halil İbrahim",
                     Surname = "Araç",
                     Email = "yazilim@ibrahimarac.com"
@@ -27,9 +28,15 @@
             context.LoginUsers.AddOrUpdate(u => u.Username,
                 new LoginUser
                 {
-                   Username="ibrahim",
-                   Password="12345"
+                    UserId = 1,
+                    Username = "ibrahim",
+                    Password = "12345"
                 }
+            );
+
+            context.Themes.AddOrUpdate(t => t.Name,
+                new Theme { Name = "Silver",Id=1 },
+                new Theme { Name = "Blue",Id=2 }
             );
 
             context.UserSettings.AddOrUpdate(u => u.UserId,
@@ -40,10 +47,7 @@
                 }
             );
 
-            context.Themes.AddOrUpdate(t => t.Name,
-                new Theme { Name="Blue"},
-                new Theme { Name="Silver"}
-            );
+            
 
             context.SaveChanges();
         }

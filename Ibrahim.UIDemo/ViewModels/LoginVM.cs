@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Ibrahim.Data.Context;
+using Ibrahim.UI.Utils;
 using Ibrahim.UI.Views;
 
 namespace Ibrahim.Scheduler.ViewModels
@@ -36,6 +37,13 @@ namespace Ibrahim.Scheduler.ViewModels
                     }
                     else
                     {
+                        //Oturum açan kullanıcıyı Cache içerisinde saklayalım. Uygulama sonlanana kadar bu bilgiye ihtiyacımız olacak.
+                        Cache.LoggedUserId = userInDb.UserId;
+
+                        //Bu kullanıcı için geçerli temayı etkin hale getirelim.
+                        Cache.Theme = context.UserSettings.Include("Theme").SingleOrDefault(us => us.UserId == Cache.LoggedUserId)
+                        .Theme.Name;
+
                         //Ana ekrana ulaşabilir. Yetkili bir kullanıcı
                         Main form = new Main();
                         form.ShowDialog();

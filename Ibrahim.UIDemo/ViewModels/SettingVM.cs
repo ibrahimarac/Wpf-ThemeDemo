@@ -1,6 +1,7 @@
 ﻿using Ibrahim.Data.Context;
 using Ibrahim.Data.Core.Domain;
 using Ibrahim.Scheduler.ViewModels;
+using Ibrahim.UI.Utils;
 using Ibrahim.UI.Views;
 using System;
 using System.Collections.Generic;
@@ -13,50 +14,68 @@ using System.Windows.Input;
 
 namespace Ibrahim.UI.ViewModels
 {
-    public class SettingVM:INotifyPropertyChanged
+    public class SettingVM : INotifyPropertyChanged
     {
-        int _userId=1;
-        int _selectedTheme;
+        int _userId;
+        Theme _selectedTheme;
+        string _error;
         IEnumerable<Theme> _themes;
 
-       
-
-        //public SettingVM(int userId)
-        //{
-        //    _userId = userId;
-
-        //}
+        public SettingVM()
+        {
+            _userId = Cache.LoggedUserId;
+        }
 
         private ICommand loadThemesCommand;
         private ICommand saveThemeCommand;
 
+        //Aşağıdaki Command, Setting isimli View'in Loaded olayında çağrılıyor.
+        //Burada tüm temalar yükleniyor ve kullanıcının seçili teması açılır kutuda seçili hale getiriliyor.
         public ICommand LoadThemesCommand
         {
             get => loadThemesCommand ?? new RelayCommand(() =>
             {
                 UserContext context = new UserContext();
-                //INotifyPropertyChanged arayüzü Entity sınıflarında kullanılamadığından Entity'mize karşılık gelen
-                //Dto sınıfı yazdık. Dolayısıyla burada veritabanından gelen Entity nesnesini Dto nesnesine çeviriyoruz.
+                //Tüm temeları açılır kutuya yükle.
                 Themes = context.Themes.ToList();
-                SelectedTheme = context.UserSettings.Single(u => u.UserId == _userId).ThemeId;
+                //Bu kullanıcı için seçili temayı açılır kutuda seçili hale getir.
+                SelectedTheme = context.UserSettings.Include("Theme").Single(u => u.UserId == _userId).Theme;
             },
             () => { return true; });
         }
 
+        //Aşağıdaki Command kullanıcının seçili temasını veritabanında güncelliyor.
         public ICommand SaveThemeCommand
         {
             get => saveThemeCommand ?? new RelayCommand(() =>
             {
                 UserContext context = new UserContext();
-                var userSettings=context.UserSettings.Single(us => us.UserId == _userId);
-                userSettings.ThemeId = SelectedTheme;
+                var userSettings = context.UserSettings.Include("Theme").Single(us => us.UserId == _userId);
+                userSettings.ThemeId = SelectedTheme.Id;
+
+                try
+                {
+                    context.SaveChanges();
+                    //Cache içerisinde yer alan seçili temayı da güncelliyoruz.
+                    Cache.Theme = SelectedTheme.Name;
+                    Error = "Tema başarıyla güncellendi.";
+                }
+                catch (Exception ex)
+                {
+                    Error = $"Tema güncellenirken bir hata oluştu.\n{ex.Message}";
+                }
             },
             () => { return true; });
         }
 
 
+        public string Error
+        {
+            get { return _error; }
+            set { _error = value; OnPropertyChanged("Error"); }
+        }
 
-        public int SelectedTheme
+        public Theme SelectedTheme
         {
             get
             {
@@ -68,7 +87,6 @@ namespace Ibrahim.UI.ViewModels
                 OnPropertyChanged("SelectedTheme");
             }
         }
-
 
         public IEnumerable<Theme> Themes
         {

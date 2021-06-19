@@ -12,8 +12,10 @@ namespace Ibrahim.Data.Core.Domain
     public class LoginUser
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+
+        public User User { get; set; }
 
         [Column(TypeName ="varchar")]
         [StringLength(10)]

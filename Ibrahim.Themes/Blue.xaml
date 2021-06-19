@@ -5,17 +5,17 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
     <!--Renkler koyudan açığa doğru gider-->
-    <Color x:Key="color1" R="87" G="87" B="87" A="255"/>
+    <Color x:Key="color1" R="56" G="70" B="134" A="255"/>
     <!--HoverBorderBrush-->
-    <Color x:Key="color2" R="136" G="136" B="136" A="255"/>
+    <Color x:Key="color2" R="90" G="104" B="168" A="255"/>
     <!--Control Background-->
-    <Color x:Key="color3" R="180" G="180" B="180" A="255"/>
+    <Color x:Key="color3" R="136" G="148" B="203" A="255"/>
     <!--Border-->
-    <Color x:Key="color4" R="224" G="224" B="224" A="255"/>
+    <Color x:Key="color4" R="186" G="194" B="232" A="255"/>
     <!--Gradient 1-->
     <!--Foreground-->
     <!--HoverBackcolor-->
-    <Color x:Key="color5" R="255" G="255" B="255" A="255"/>
+    <Color x:Key="color5" R="234" G="237" B="251" A="255"/>
     <!--Gradiant 2-->
     <Color x:Key="error" R="255" G="0" B="0" A="255"/>
 
@@ -25,13 +25,12 @@
         <GradientStop Color="{StaticResource color5}" Offset="1"/>
     </LinearGradientBrush>
 
-    <sys:Double x:Key="standartFontSize">16</sys:Double>
+    <sys:Double x:Key="standartFontSize">13</sys:Double>
     <FontFamily x:Key="standartFontFamily">Calibri</FontFamily>
     <Thickness x:Key="standartMargin" Top="2" Left="2" Right="2" Bottom="2"/>
-    <Thickness x:Key="standartPadding" Top="5" Left="5" Right="5" Bottom="5"/>
+    <Thickness x:Key="standartPadding" Top="3" Left="3" Right="3" Bottom="3"/>
     <Thickness x:Key="standartBorderSize" Top="1" Left="1" Right="1" Bottom="1"/>
-    <CornerRadius x:Key="standartCornerRadius">4</CornerRadius>
-    <VerticalAlignment x:Key="errorTextVerticalAlignment">Center</VerticalAlignment>
+    <CornerRadius x:Key="standartCornerRadius">5</CornerRadius>
     <converters:HeightDivideTwoToMarginConverter x:Key="heightDivideTwoToMargin"/>
     <converters:HeightToLeftMarginConverter x:Key="heightToMargin"/>
 
@@ -232,7 +231,6 @@
         <Setter Property="FontFamily" Value="{StaticResource standartFontFamily}"/>
         <Setter Property="Margin" Value="{StaticResource standartMargin}"/>
         <Setter Property="Padding" Value="{StaticResource standartPadding}"/>
-        <Setter Property="VerticalAlignment" Value="{StaticResource errorTextVerticalAlignment}"/>
         <Setter Property="Foreground">
             <Setter.Value>
                 <SolidColorBrush Color="{StaticResource error}"/>
@@ -539,7 +537,6 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
-        <Setter Property="FontSize" Value="{StaticResource standartFontSize}"/>
         <Setter Property="TextElement.Foreground">
             <Setter.Value>
                 <SolidColorBrush Color="{StaticResource color5}"/>
@@ -555,7 +552,7 @@
                 IsChecked="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                 Template="{StaticResource ComboBoxToggleButtonTemplate}"/>
 
-                        <ContentPresenter Name="ContentSite" Margin="5, 3, 23, 3" IsHitTestVisible="False" 
+                        <ContentPresenter Name="ContentSite" Margin="5, 3, 23, 3" IsHitTestVisible="False"
                               HorizontalAlignment="Left" VerticalAlignment="Center"                              
                               Content="{TemplateBinding ComboBox.SelectionBoxItem}" 
                               ContentTemplate="{TemplateBinding ComboBox.SelectionBoxItemTemplate}"
