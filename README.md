@@ -26,8 +26,8 @@ tema dosyasının üst kısmında yer alan ilgili satırlarda yeni renk tanımla
     <!--HoverBackcolor-->
     <Color x:Key="color5" R="253" G="220" B="255" A="223"/>
     <!--Gradiant 2-->
-    <Color x:Key="error" R="255" G="0" B="0" A="255"/>
- -->   
+    <Color x:Key="error" R="255" G="0" B="0" A="255"/> -->
+    
  
  Veritabanı Yapısı
  
