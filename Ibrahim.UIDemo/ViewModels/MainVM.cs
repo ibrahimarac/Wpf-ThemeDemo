@@ -20,9 +20,9 @@ namespace Ibrahim.Scheduler.ViewModels
         {
             get => userCommand ?? new RelayCommand(() =>
             {
-                //Hatırlatıcılar butonuna basıldığında ona ait formu aç
-                //Schedules scheduleWindow = new Schedules();
-                //scheduleWindow.ShowDialog();
+                //Kullanıcı işlemleri formunu aç
+                Users userWindow = new Users();
+                userWindow.ShowDialog();
             },
                 () => { return true; });
         }

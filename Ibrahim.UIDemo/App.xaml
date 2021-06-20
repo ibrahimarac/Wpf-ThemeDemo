@@ -1,7 +1,7 @@
 ﻿<Application x:Class="Ibrahim.UI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="/Views/Login.xaml">
+             StartupUri="/Views/Users.xaml">
     <Application.Resources>
         <ResourceDictionary Source="/Ibrahim.Themes;component/Silver.xaml"/>
     </Application.Resources>

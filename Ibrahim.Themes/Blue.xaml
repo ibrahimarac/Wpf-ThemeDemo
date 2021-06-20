@@ -26,6 +26,7 @@
     </LinearGradientBrush>
 
     <sys:Double x:Key="standartFontSize">16</sys:Double>
+    <sys:Double x:Key="standartRowHeight">30</sys:Double>
     <FontFamily x:Key="standartFontFamily">Calibri</FontFamily>
     <Thickness x:Key="standartMargin" Top="2" Left="2" Right="2" Bottom="2"/>
     <Thickness x:Key="standartPadding" Top="5" Left="5" Right="5" Bottom="5"/>
@@ -414,6 +415,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="HeadersVisibility" Value="Column"/>
+        <Setter Property="RowHeight" Value="{StaticResource standartRowHeight}"/>
         <Setter Property="ColumnHeaderStyle">
             <Setter.Value>
                 <Style TargetType="DataGridColumnHeader">
