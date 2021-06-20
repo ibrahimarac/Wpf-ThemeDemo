@@ -10,7 +10,12 @@ Wpf Demo Uygulama
 
 4-) Kodlarda açıklama satırları bulunmaktadır.
 
-6-) Kendinize ait yeni bir tema eklemek için "Ibrahim.Tehemes" projesi içerisinde yer alan xaml uzantılı tema dosyalarından bir tanesini kopyalayarak 
+5-) Projeye ait veritabanını ve varsayılan değerleri oluşturmak için "PackageManagerConsole" açıkken "Ibrahim.Data" projesini seçili hale getirerek "UpdateDatabase"
+komutunu uygulayın.
+
+6-) Varsayılan veritabanı SQLEXPRESS olarak ayarlanmıştır. Eğer SQLSERVER'a sahipseniz "Ibrahim.UI" projesi içerisinde yer alan App.config dosyasına yer alan bağlantı cümlesini güncelleyiniz. 
+
+7-) Kendinize ait yeni bir tema eklemek için "Ibrahim.Tehemes" projesi içerisinde yer alan xaml uzantılı tema dosyalarından bir tanesini kopyalayarak 
 tema dosyasının üst kısmında yer alan ilgili satırlarda yeni renk tanımlamaları yapılabilmektedir.
 <!--
 !--Renkler koyudan açığa doğru gider-->
