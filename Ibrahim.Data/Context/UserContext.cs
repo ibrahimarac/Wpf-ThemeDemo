@@ -10,7 +10,7 @@ namespace Ibrahim.Data.Context
 {
     public class UserContext:DbContext
     {
-        public UserContext():base("SchedulerConnection")
+        public UserContext():base("UserConnection")
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;
