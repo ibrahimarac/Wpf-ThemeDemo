@@ -12,7 +12,7 @@ Wpf Demo Uygulama
 
 6-) Kendinize ait yeni bir tema eklemek için "Ibrahim.Tehemes" projesi içerisinde yer alan xaml uzantılı tema dosyalarından bir tanesini kopyalayarak 
 tema dosyasının üst kısmında yer alan ilgili satırlarda yeni renk tanımlamaları yapılabilmektedir.
-
+<!--
 !--Renkler koyudan açığa doğru gider-->
     <Color x:Key="color1" R="188" G="58" B="74" A="255"/>
     <!--HoverBorderBrush-->
@@ -27,7 +27,7 @@ tema dosyasının üst kısmında yer alan ilgili satırlarda yeni renk tanımla
     <Color x:Key="color5" R="253" G="220" B="255" A="223"/>
     <!--Gradiant 2-->
     <Color x:Key="error" R="255" G="0" B="0" A="255"/>
-    
+ -->   
  
  Veritabanı Yapısı
  
